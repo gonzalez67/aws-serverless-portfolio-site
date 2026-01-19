@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    Tony Gonzalez | Application Support Analyst & Jira Administrator | Atlassian Cloud
+  </title>
+
+  <meta
+    name="description"
+    content="Application Support Analyst and Jira Administrator with 10+ years of experience in IT application support, Jira Cloud administration, workflow automation, and Atlassian tools. Proven experience supporting SaaS platforms, incident management, integrations, and service delivery."
+  />
+
+  <meta
+    name="keywords"
+    content="Application Support Analyst, Jira Administrator, Jira Cloud, Atlassian, IT Application Support, Service Desk, Jira Workflow Design, Jira Automation, Incident Management, Change Management"
+  />
+
+  <meta name="author" content="Tony Gonzalez" />
+  <meta name="language" content="en" />
+  <meta name="distribution" content="Global" />
+</head>
+
+
+    <link href="estilo.css" rel="stylesheet" />
+
+    <script src="js/myscript.js" defer></script>
+    <script src="vid/flowplayer-3.1.4.min.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="home">
+    <div class="chat_container">
+      <div class="content">
+        <header>
+          <div class="navmain">
+            <div class="navbar-logo">
+              <img
+                src="assets/images/tonycara-1.jpg"
+                alt="Photo of Tony Gonzalez"
+                class="avatar"
+                width="100"
+                height="100"
+              />
+              <a class="navbar-brand" href="index.html">
+                <h1>Tony <span class="subhead">Gonzalez</span></h1>
+              </a>
+            </div>
+
+            <nav class="navbar_right" aria-label="Main navigation">
+              <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="biography.html">Biography</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <main class="main_section">
+          <div id="image_div"">
+            <img
+              class="mySlides w3-animate-fading"
+              src="assets/images/tony-2.jpg"
+              alt="Tony at home"
+            />
+            <img
+              class="mySlides w3-animate-fading"
+              src="assets/images/farm-4.jpg"
+              alt="Tony with family"
+            />
+
+            <section class="my_introduction">
+    
+              <h1 class="make_it_nice">Application Support Analyst & Jira Administrator</h1>
+
+<p>
+I am an Application Support Analyst and Jira Administrator with over 10 years of experience supporting digital platforms; including Atlassian Cloud (Jira and Confluence).
+</p>
+                       
+           
+                <p class="thick">What I do</p>
+<ul>
+  <li>Jira Cloud administration and workflow design</li>
+  <li>Application support for digital platforms</li>
+  <li>Incident and change management (ITIL-aligned)</li>
+  <li>Jira automation, custom fields, and permissions</li>
+  <li>Integration support and troubleshooting</li>
+</ul>
+
+               
+                So, check the
+                <a class="internal_links" href="architecture.html"
+                  >Architecture</a
+                >
+                of this site and
+                <a class="internal_links" href="feedback.html">get in touch</a>
+                with me. You can download my CV too: <a class="internal_links" href="assets/cv/tony_gonzalez_CV.pdf" download>PDF</a>
+  or
+  <a class="internal_links" href="assets/cv/tony_gonzalez_CV.docx" download>DOCX</a>.
+              </>
+              
+   
+
+            </section>
+          </div>
+        </main>
+
+        <footer>
+          <div id="footer">
+            <p>Copyright 2022 - formarc.net - All Rights Reserved</p>
+              
+            <p id="visitor-counter" class="visitor-counter">
+               Hello! Visitor number …
+            </p>
+
+            <a
+              href="https://www.linkedin.com/in/tonygonzalez67/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="assets/images/LinkedIn_logo_1.png"
+                alt="LinkedIn logo"
+                class="social-icon"
+              />
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+   
+<script>
+fetch("https://1umnfqa8bj.execute-api.eu-west-2.amazonaws.com/Production/counter", {
+  headers: { "x-human": "1" }
+})
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("visitor-counter").textContent =
+      "Hello! Visitor number " + data.count;
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("visitor-counter").textContent = "Hello! Visitor";
+  });
+</script>
+
+
+    
+  </body>
+</html>

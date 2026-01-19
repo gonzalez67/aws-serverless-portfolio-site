@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      Tony Gonzalez | Application Support Analyst & Jira Administrator |
+      Atlassian Cloud
+    </title>
+
+    <meta name="description" content="Personal website of Tony Gonzalez" />
+    <meta name="distribution" content="Global" />
+
+    <link href="estilo.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="feedback">
+    <div class="chat_container">
+      <div class="content">
+        <header>
+          <div class="navmain">
+            <div class="navbar-logo">
+              <img
+                src="assets/images/tonycara-1.jpg"
+                alt="Photo of Tony Gonzalez"
+                class="avatar"
+                width="100"
+                height="100"
+              />
+              <a class="navbar-brand" href="index.html">
+                <h1>Tony <span class="subhead">Gonzalez</span></h1>
+              </a>
+            </div>
+
+            <nav class="navbar_right" aria-label="Main navigation">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="biography.html">Biography</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a class="active" href="feedback.html">Feedback</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <main>
+          <p class="thick">If you fill the form I will get back to you</p>
+
+          <form id="feedbackForm" class="feedback-form">
+            <label>
+              Name
+              <input type="text" name="name" required maxlength="80" />
+            </label>
+
+            <label>
+              Subject
+              <input type="text" name="subject" required maxlength="120" />
+            </label>
+
+            <label>
+              Message
+              <textarea
+                name="message"
+                required
+                maxlength="2000"
+                rows="6"
+              ></textarea>
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" required maxlength="120" />
+            </label>
+
+            <!-- Honeypot: hidden from humans -->
+            <div class="hp-field" aria-hidden="true">
+              <label>
+                Website
+                <input
+                  type="text"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </label>
+            </div>
+
+            <button type="submit">Send email</button>
+            <p id="formStatus" role="status"></p>
+          </form>
+        </main>
+
+        <footer>
+          <div id="footer">
+            <p>Copyright 2022 - formarc.net - All Rights Reserved</p>
+            <a
+              href="https://www.linkedin.com/in/tonygonzalez67/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="assets/images/LinkedIn_logo_1.png"
+                alt="LinkedIn logo"
+                class="social-icon"
+              />
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      // Use your real API base URL here:
+      const API_BASE =
+        "https://xmoho71myf.execute-api.eu-west-2.amazonaws.com/prod";
+
+      const form = document.getElementById("feedbackForm");
+      const statusEl = document.getElementById("formStatus");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        statusEl.textContent = "Sending...";
+
+        const formData = new FormData(form);
+        const payload = Object.fromEntries(formData.entries());
+
+        try {
+          const res = await fetch(`${API_BASE}/feedback`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          const data = await res.json().catch(() => ({}));
+
+          if (!res.ok) {
+            statusEl.textContent = data.error || "Failed to send.";
+            return;
+          }
+
+          statusEl.textContent = "Thanks — message sent!";
+          form.reset();
+        } catch (err) {
+          statusEl.textContent = "Network error. Please try again.";
+        }
+      });
+    </script>
+  </body>
+</html>

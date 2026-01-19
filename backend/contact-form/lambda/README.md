@@ -10,7 +10,7 @@
 - Store valid submissions in DynamoDB
 - Publish a notification to SNS (email alert)
 
-### Environment variables (example)
+### Environment variables (need to change this)
 - DDB_TABLE_NAME=
 - SNS_TOPIC_ARN=
 - BOT_HEADER_NAME=

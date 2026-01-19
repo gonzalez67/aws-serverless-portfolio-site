@@ -25,6 +25,8 @@ The site is implemented as a **serverless, cloud-native solution on AWS**, combi
 
 ---
 
+## Backend (serverless): Python Lambdas for the contact form and visitor counter are under backend/, fronted by API Gateway HTTP APIs.
+
 ## Contact Form – Serverless Backend
 
 When a user submits the form:
